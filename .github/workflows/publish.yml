@@ -13,9 +13,9 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 16
-      - run: npm install
-      - run: npm prod
-      - run: npm test
+      - run: npm run install
+      - run: npm run prod
+      - run: npm run test
 
   publish-gpr:
     needs: build
@@ -29,8 +29,8 @@ jobs:
         with:
           node-version: 16
           registry-url: https://npm.pkg.github.com/
-      - run: npm install
-      - run: npm prod
+      - run: npm run install
+      - run: npm run prod
       - run: cd packages/core && npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
