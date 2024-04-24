@@ -13,6 +13,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 16
+      - run: npm install
       - run: npm prod
       - run: npm test
 
@@ -28,6 +29,7 @@ jobs:
         with:
           node-version: 16
           registry-url: https://npm.pkg.github.com/
+      - run: npm install
       - run: npm prod
       - run: cd packages/core && npm publish
         env:
